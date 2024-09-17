@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-09-17T14:42:01.092662" rpa="false" schemaversion="5">
+<suite id="s1" name="Seguro.Portateis" source="C:\Users\QA\TesteAutomatizadoRobot\seguro.portateis.robot">
+<test id="s1-t1" name="Cenário 1: Jornada Seguro Portateis - Cartão - Sem Bolsa Protegida" line="113">
+<kw name="Abrir Site">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:01.349242" level="INFO">Opening browser 'chrome' to base url 'https://staging.ciclic.com.br/seguro-equipamentos-portateis/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:42:01.349242" elapsed="3.576489"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-09-17T14:42:04.926730" elapsed="6.751133"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:01.348207" elapsed="10.330657"/>
+</kw>
+<kw name="Aguardar site carregar">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:page-content</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:11.679865" elapsed="0.026351"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:11.679865" elapsed="0.026351"/>
+</kw>
+<kw name="Fechar Banner">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${FECHAR_BANNER}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:11.707215" elapsed="0.023615"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:11.730830" level="INFO">Clicking element 'css:.icon.image-banner__close'.</msg>
+<arg>${FECHAR_BANNER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:11.730830" elapsed="0.091592"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:11.707215" elapsed="0.116204"/>
+</kw>
+<kw name="Simular">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SIMULAR}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:11.824420" elapsed="0.028999"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:11.854419" level="INFO">Clicking element 'xpath=//a[contains(text(), 'Simular proteção')]'.</msg>
+<arg>${SIMULAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:11.853419" elapsed="1.952702"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:11.823419" elapsed="1.983702"/>
+</kw>
+<kw name="Selecionar Conta Ciclic ou Nao">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:button.button--md.button--primary.page__button</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:13.808120" elapsed="0.872688"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:14.681811" level="INFO">Clicking element 'css:button.button--md.button--primary.page__button'.</msg>
+<arg>css:button.button--md.button--primary.page__button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:14.680808" elapsed="0.142002"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:13.807121" elapsed="1.015689"/>
+</kw>
+<kw name="Preencher Nome Completo">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#your-name</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:14.823811" elapsed="0.246207"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>css=#your-name</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-09-17T14:42:15.070018" elapsed="0.025915"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:15.096959" level="INFO">Clicking element 'css=#your-name'.</msg>
+<arg>css=#your-name</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:15.095933" elapsed="0.063298"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:15.160232" level="INFO">Typing text 'Diego Fonseca' into text field 'css=#your-name'.</msg>
+<arg>css=#your-name</arg>
+<arg>${nome_completo}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:15.160232" elapsed="0.143228"/>
+</kw>
+<arg>Diego Fonseca</arg>
+<status status="PASS" start="2024-09-17T14:42:14.823811" elapsed="0.480646"/>
+</kw>
+<kw name="Proxima pagina">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=.page__button</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:15.305465" elapsed="0.021990"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>css=.page__button</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-09-17T14:42:15.327455" elapsed="0.027001"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:15.354456" level="INFO">Clicking element 'css=.page__button'.</msg>
+<arg>css=.page__button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:15.354456" elapsed="0.065999"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:15.304457" elapsed="0.115998"/>
+</kw>
+<kw name="Preencher e-mail">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#your-email</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:15.421456" elapsed="0.269130"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>css=#your-email</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-09-17T14:42:15.690586" elapsed="0.021991"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:15.712577" level="INFO">Clicking element 'css=#your-email'.</msg>
+<arg>css=#your-email</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:15.712577" elapsed="0.055001"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:15.768579" level="INFO">Typing text 'diegofonseca@ciclic.com.br' into text field 'css=#your-email'.</msg>
+<arg>css=#your-email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:15.768579" elapsed="0.185123"/>
+</kw>
+<arg>diegofonseca@ciclic.com.br</arg>
+<status status="PASS" start="2024-09-17T14:42:15.421456" elapsed="0.532246"/>
+</kw>
+<kw name="Preencher Telefone">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:15.977704" level="INFO">Clicking element 'css=#your-phone'.</msg>
+<arg>css=#your-phone</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:15.976703" elapsed="0.076002"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:16.053706" level="INFO">Typing text '349900000000' into text field 'css=#your-phone'.</msg>
+<arg>css=#your-phone</arg>
+<arg>${telefone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:16.052705" elapsed="0.121000"/>
+</kw>
+<arg>349900000000</arg>
+<status status="PASS" start="2024-09-17T14:42:15.975704" elapsed="0.198001"/>
+</kw>
+<kw name="Aceitar termo">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:label[for="terms"]</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:16.174705" elapsed="0.027005"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:16.202704" level="INFO">Clicking element 'css:label[for="terms"]'.</msg>
+<arg>css:label[for="terms"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:16.201710" elapsed="0.071993"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:label[for="terms"]</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:16.273703" elapsed="0.017000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:16.290703" level="INFO">Clicking element 'css:button.button--md.button--primary.page__button'.</msg>
+<arg>css:button.button--md.button--primary.page__button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:16.290703" elapsed="0.050000"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:16.174705" elapsed="0.165998"/>
+</kw>
+<kw name="Proxima pagina">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=.page__button</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:16.342702" elapsed="0.016999"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>css=.page__button</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-09-17T14:42:16.359701" elapsed="0.019999"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:16.380702" level="INFO">Clicking element 'css=.page__button'.</msg>
+<arg>css=.page__button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:16.379700" elapsed="0.046002"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:16.341704" elapsed="0.083998"/>
+</kw>
+<kw name="Selecionar dispositivo">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SELECIONAR_DISPOSITIVO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:16.426702" elapsed="0.467301"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:16.894003" level="INFO">Clicking element 'xpath=//div[contains(@class, 'button-card__card') and contains(@class, 'button-card__card--simple') and contains(., 'Celular')]'.</msg>
+<arg>${SELECIONAR_DISPOSITIVO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:16.894003" elapsed="0.055002"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:16.426702" elapsed="0.523302"/>
+</kw>
+<kw name="Selecionar marca">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MARCA_DISPOSITIVO}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:16.953005" elapsed="2.158910"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:19.111915" level="INFO">Clicking element 'xpath=//div[contains(@class, 'button-card__card') and contains(@class, 'button-card__card--icon-big') and .//img[contains(@src, 'apple.svg')]]'.</msg>
+<arg>${MARCA_DISPOSITIVO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:19.111915" elapsed="0.056003"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:16.953005" elapsed="2.214913"/>
+</kw>
+<kw name="Selecionar modelo">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CLICAR_CAMPO_MODELO}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:19.172918" elapsed="0.246419"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:19.420344" level="INFO">Clicking element 'xpath=//input[@id='search']'.</msg>
+<arg>${CLICAR_CAMPO_MODELO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:19.419337" elapsed="0.064734"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CLICAR_IPHONE14}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:19.484071" elapsed="0.888236"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:20.372307" level="INFO">Clicking element 'xpath=//li[contains(text(), 'IPHONE 14 PRO MAX')]'.</msg>
+<arg>${CLICAR_IPHONE14}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:20.372307" elapsed="0.058842"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:19.172918" elapsed="1.258231"/>
+</kw>
+<kw name="Selecionar memoria">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAPACIDADE_MEMORIA}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:20.432149" elapsed="1.090132"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:21.522281" level="INFO">Clicking element 'xpath=//li[contains(text(), '128GB')]'.</msg>
+<arg>${CAPACIDADE_MEMORIA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:21.522281" elapsed="0.087288"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:20.431149" elapsed="1.178420"/>
+</kw>
+<kw name="Clicar proximo">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_PROXIMO}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:21.610563" elapsed="0.244247"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:21.855809" level="INFO">Clicking element 'xpath=//*[@id="app"]/main/div/div/footer/div/button'.</msg>
+<arg>${BOTAO_PROXIMO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:21.855809" elapsed="0.082003"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:21.610563" elapsed="0.328258"/>
+</kw>
+<kw name="Bolsa protegida">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOLSA_PROTEGIDA_NAO}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:42:21.939817" elapsed="0.246993"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:42:22.186810" level="INFO">Clicking element 'xpath=//div[contains(@class, 'addon__footer')]//a[contains(text(), 'Não, obrigado')]'.</msg>
+<arg>${BOLSA_PROTEGIDA_NAO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:42:22.186810" elapsed="11.612024"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:21.939817" elapsed="11.859017"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-09-17T14:42:33.801830" elapsed="2.781304"/>
+</kw>
+<status status="PASS" start="2024-09-17T14:42:01.348207" elapsed="35.235926"/>
+</test>
+<status status="PASS" start="2024-09-17T14:42:01.094825" elapsed="35.490620"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Seguro.Portateis">Seguro.Portateis</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
