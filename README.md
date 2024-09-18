@@ -46,13 +46,17 @@ Instalação e configuração do Robot FrameWork
 
 ** Settings **
 Library  SeleniumLibrary
+
 ** Variables **
+
 ** Keywords **
 Abrir Site
 Open Browser https://staging.ciclic.com.br/seguro-viagem/     chrome
+
 ** Test Cases **
 Cenário 1: Acessando o site do Robot
 Abrir Site
+
 
 •	Após colar o script instalar a extensão Robot Framework Intellisense
 
