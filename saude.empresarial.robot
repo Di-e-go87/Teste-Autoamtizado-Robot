@@ -1,10 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    gerador_cpf.py 
-Library    gerador_telefone.py
+Library    locators.py 
 Library    String
-Library    gerador_nome.py
-
 
 
 *** Variables ***
