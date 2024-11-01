@@ -2,22 +2,18 @@
 Library    SeleniumLibrary
 
 *** Variables ***
-${URL}    https://staging.ciclic.com.br/seguro-viagem/
-${PAIS_SELECTOR}    xpath=//div[contains(text(), 'Afeganistão')]  
-${DATA_SELECTOR}    xpath=//*[@id="page-content"]/div/section[1]/div[2]/div[2]/div[2]/div/div/div[2]/div[1]
-${DATA_EMBARQUE}   xpath=//*[@id="page-content"]/div/section[1]/div[2]/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div[26]/span
-${DATA_DESEMBARQUE}   xpath=//*[@id="page-content"]/div/section[1]/div[2]/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div[33]
-${PASSAGEIROS_IDADE}    xpath=//*[@id="page-content"]/div/section[1]/div[2]/div[2]/div[2]/div/div/div[3]
-${PASSAGEIRO_0_A_40}     xpath=//*[@id="page-content"]/div/section[1]/div[2]/div[2]/div[2]/div/div/div[3]/div[2]/div[1]/div[1]/div/button[2]
-${COTAR_AGORA}      xpath=//*[@id="page-content"]/div/section[1]/div[2]/div[2]/div[2]/div/button
-${PROXIMO}            xpath=//button[@data-v-b9d41504 and @loading='false']
-${FECHAR_BANNER}    css:.icon.image-banner__close
-${DADOS_PASSAGEIROS}     css:div.p-form__load div.base-toggle
-${CPF}                 061.222.000-18
-${CAMPO_GENERO}       xpath=//select[@value='']
-${OPCAO_MASCULINO}    xpath=//select[@value='']/option[@value='MALE']
-${CONFIRMAR_BUTTON}    xpath=//button[contains(@class, 'p-form__btn') and contains(text(), 'Confirmar')]
-${NOME_COMPLETO}             xpath=//*[@id="app"]/section/div/div[2]/div/fieldset[2]/div
+${URL}                       https://staging.ciclic.com.br/seguro-celular/
+${SIMULAR}                   xpath=//a[contains(text(), 'Simular seguro celular')] 
+${PROXIMO}                   xpath=//button[@data-v-b9d41504 and @loading='false']
+${CPF}                       061.222.000-18
+${SELECIONAR_DISPOSITIVO}    xpath=//div[contains(@class, 'button-card__card') and contains(@class, 'button-card__card--simple') and contains(., 'Celular')]
+${MARCA_DISPOSITIVO}         xpath=//div[contains(@class, 'button-card__card') and contains(@class, 'button-card__card--icon-big') and .//img[contains(@src, 'apple.svg')]]
+${CLICAR_CAMPO_MODELO}       xpath=//input[@id='search'] 
+${CLICAR_IPHONE}             xpath=//li[contains(text(), 'IPHONE 14')]
+${CAPACIDADE_MEMORIA}        xpath=//li[contains(text(), '128GB')]
+${BOTAO_PROXIMO}             xpath=//*[@id="app"]/main/div/div/footer/div/button
+${BOLSA_PROTEGIDA_NAO}       xpath=//a[text()='Não, obrigado'] 
+${NOME_COMPLETO}             Diego Fonseca
 ${DATA_NASCIMENTO}           25111987
 ${CPF_USUARIO}               061.222.000-18     
 ${TELEFONE}                  34991768693  
@@ -46,36 +42,18 @@ Abrir Site
 Aguardar site carregar
     Wait Until Element Is Visible    id:page-content    10s
 
-Clicar sobre o menu destino
-    Wait Until Element Is Visible    css:.travel-quoter__country-module    10s
-    Click Element    css:.travel-quoter__country-module
-
-Clicar sobre o pais de destino
-    Wait Until Element Is Visible    ${PAIS_SELECTOR}    10s
-    Scroll Element Into View    ${PAIS_SELECTOR}
-    Click Element    ${PAIS_SELECTOR}
-
-Clicar data de embarque e desembarque
-    Wait Until Element Is Visible    ${DATA_SELECTOR}    10s
-    Click Element    ${DATA_SELECTOR}
-    Click Element   ${DATA_EMBARQUE}
-    Click Element   ${DATA_DESEMBARQUE}
-
-Clicar sobre passageiros e idade
-    Wait Until Element Is Visible    ${PASSAGEIROS_IDADE}    20s
-    Click Element    ${PASSAGEIROS_IDADE}
-    Click Element    ${PASSAGEIRO_0_A_40}
-
-Clicar cotar agora
-    Wait Until Element Is Visible    ${COTAR_AGORA}    20s
-    Click Element    ${COTAR_AGORA}
-
+Simular
+    Wait Until Element Is Visible    ${SIMULAR}    20s
+    Click Element                    ${SIMULAR} 
+ 
 Selecionar Conta Ciclic ou Nao
-    Wait Until Element Is Visible    css:button.button--md.button--primary.page__button   20s
-    Click Element    css:button.button--md.button--primary.page__button
+    Wait Until Element Is Visible    css=label[for="selection-dont-have"]    20s
+    Click Element    css=label[for="selection-dont-have"]
+    Wait Until Element Is Visible    css=button.page__button    20s
+    Click Element    css=button.page__button
 
-Preencher Nome Completo
-   [Arguments]    ${nome_completo}
+Nome Completo
+    [Arguments]    ${nome_completo}
     Wait Until Element Is Visible    css=#your-name    20s
     Wait Until Element Is Enabled    css=#your-name    20s
     Click Element    css=#your-name
@@ -87,54 +65,58 @@ Proxima pagina
     Click Element    css=.page__button
 
 Preencher e-mail
-   [Arguments]    ${email}
+    [Arguments]    ${email}
     Wait Until Element Is Visible    css=#your-email    30s
     Wait Until Element Is Enabled    css=#your-email    30s
     Click Element    css=#your-email
     Input Text    css=#your-email    ${email}
 
 Preencher Telefone
-   [Arguments]    ${telefone}
+    [Arguments]    ${telefone}
     Click Element    css=#your-phone
     Input Text    css=#your-phone    ${telefone}
 
 Aceitar termo
-    Wait Until Element Is Visible     css:label[for="terms"]  30s
+    Wait Until Element Is Visible    css:label[for="terms"]    30s
     Click Element    css:label[for="terms"]
-    Wait Until Element Is Visible     css:label[for="terms"]  30s
-    Click Element    css:button.button--md.button--primary.page__button    
+    Wait Until Element Is Visible    css:label[for="terms"]    30s
+    Click Element    css:button.button--md.button--primary.page__button
 
-Selecionar Plano Ciclic 35
-    Wait Until Element Is Visible    css:button.button--md.button--primary.plan__button  30s
-    Click Element    css:button.button--md.button--primary.plan__button  
-    Sleep  1s
+Selecionar dispositivo
+    Wait Until Element Is Visible    ${SELECIONAR_DISPOSITIVO}
+    Click Element    ${SELECIONAR_DISPOSITIVO}
 
-Carregar meus dados
-    Wait Until Element Is Visible    ${DADOS_PASSAGEIROS}    30s
-    Click Element    ${DADOS_PASSAGEIROS}   
+Selecionar marca
+    Wait Until Element Is Visible    ${MARCA_DISPOSITIVO}    20s
+    Click Element    ${MARCA_DISPOSITIVO}
 
-Selecionar genero
-    Wait Until Element Is Visible    ${CAMPO_GENERO}    timeout=10s
-    Click Element                    ${CAMPO_GENERO}     # Clica para abrir as opções
-    Wait Until Element Is Visible    ${OPCAO_MASCULINO}  timeout=10s
-    Click Element                    ${OPCAO_MASCULINO}  # Seleciona a opção "Masculino"
-        
-Preencher campo CPF
-    [Arguments]    ${cpf}
-    Input Text    css:input.input__input.p-form__input__birthdate    25/11/1987
-    Wait Until Element Is Visible    id:1-cpf    20s
-    Input Text    id:1-cpf    ${cpf} 
-    Wait Until Element Is Visible    id:1-cpf    30s
+Selecionar modelo
+    Wait Until Element Is Visible    ${CLICAR_CAMPO_MODELO}    20s
+    Click Element    ${CLICAR_CAMPO_MODELO}    
+    Wait Until Element Is Visible    ${CLICAR_IPHONE}    20s
+    Click Element    ${CLICAR_IPHONE}
+
+Selecionar memoria
+    Wait Until Element Is Visible    ${CAPACIDADE_MEMORIA}   20s
+    Click Element    ${CAPACIDADE_MEMORIA}    
+
+Clicar proximo
+    Wait Until Element Is Visible    ${BOTAO_PROXIMO}    30s
+    Click Element    ${BOTAO_PROXIMO}
+    Sleep    2s
     
+Bolsa protegida
+     Wait Until Element Is Visible    xpath=//a[text()='Não, obrigado']    timeout=10
+     Click Element    xpath=//a[text()='Não, obrigado']
+     Sleep  2s
+   
 
-Clicar Botao Confirmar
-    Wait Until Element Is Visible    css:.button.button--md.button--secondary.p-form__btn    timeout=5s
-    Click Element                    css:.button.button--md.button--secondary.p-form__btn   
-    Sleep  9s
-
-Nome e Sobrenome
-    Wait Until Element Is Visible    xpath=//*[@id="app"]/div/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/fieldset/div
-    Click Element                     xpath=//*[@id="app"]/div/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/fieldset/div
+Preencher Nome
+    Wait Until Element Is Visible    id=name    timeout=10
+    Click Element    id=name
+    Input Text    id=name    ${NOME_COMPLETO}
+    
+ 
 Data nascimento
      Wait Until Element Is Visible    id:birthday  20s
      Input Text    id:birthday    ${DATA_NASCIMENTO}
@@ -196,7 +178,7 @@ Preencher Código de Segurança
     Wait Until Element Is Visible    id=securityCode    20s
     Input Text    id=securityCode    ${CODIGO_SEGURANCA}
 
-Preencher Nome do Titular do Cartão
+Titular do Cartão
     Wait Until Element Is Visible    id=nameCard    20s
     Input Text    id=nameCard    ${NOME_TITULAR}
 
@@ -217,44 +199,62 @@ Confirmar Termos
     Click Element    xpath=//*[@id="app"]/div/div[2]/div[3]/div[1]/div[3]/div[2]/div[2]/div[2]/fieldset[1]/label    
     Sleep   5s
 
+Selecionar Nova Parcelas
+    Wait Until Element Is Visible    ${CAMPO_PARCELAS}    20s
+    Click Element    ${CAMPO_PARCELAS}  # Clica no campo de seleção
+    Wait Until Element Is Visible    ${OPCAO_PARCELAS_6}    20s  # Aguarda a opção ser exibida
+    Click Element    ${OPCAO_PARCELAS_6}                    
+    Sleep  3s
+
 Clicar Botao Concluir Pagamento
     Wait Until Element Is Visible    ${CONCLUIR_PAGAMENTO}    20s
     Click Element    ${CONCLUIR_PAGAMENTO}
-    Sleep  1s
+    Sleep  5s
 
 Clicar Icone Fechar
-    Clicar Icone Fechar
     Wait Until Element Is Visible    ${ICONE_FECHAR}    20s
     Click Element    ${ICONE_FECHAR}
 
-    
 *** Test Cases ***
-Cenário 1: Seguro Viagem Internacional - 1 passageiro - Cartão
+Cenário 1:Seguro Celular - Cartão - Sem Bolsa Protegida
     Abrir Site
     Aguardar site carregar
-    #Fechar Banner 
-    Clicar sobre o menu destino
-    Clicar sobre o pais de destino
-    Clicar data de embarque e desembarque
-    Clicar sobre passageiros e idade
-    Clicar cotar agora
+    Simular
     Selecionar Conta Ciclic ou Nao
-    Preencher Nome Completo     Diego Fonseca
+    Nome Completo    Diego Fonseca
     Proxima pagina
-    Preencher e-mail   diegofonseca@ciclic.com.br
-    Preencher Telefone  349900000000     
+    Preencher e-mail    diegofonseca@ciclic.com.br
+    Preencher Telefone    349900000000
     Aceitar termo
-    Proxima pagina    
-    Selecionar Plano Ciclic 35     
-    Carregar meus dados 
-    Selecionar genero   
-    Preencher campo CPF    ${CPF}  
-    Clicar Botao Confirmar   
-    Nome e Sobrenome    
-    [Teardown]   Close Browser
+    Proxima pagina
+    Selecionar dispositivo
+    Selecionar marca
+    Selecionar modelo
+    Selecionar memoria
+    Clicar proximo
+    Bolsa protegida
+    Preencher Nome 
+    Data nascimento  
+    Numero CPF
+    Numero Telefonse
+    Preencher e Confirmar E-mail
+    Clicar Botão Continuar
+    Preencher Campo CEP
+    Preencher Campo Número da Rua  ${STREET_NUMBER}
+    Selecionar Botao Continuar
+    Selecionar Meio de Pagamento    $
+    Cartao de Credito
+    Preencher Numero do Cartao   
+    Preencher Validade do Cartao  
+    Preencher Código de Segurança
+    Titular do Cartão
+    Preencher CPF do Cartão
+    Selecionar Parcelas    
+    Confirmar Termos
+    Selecionar Nova Parcelas
+    Clicar Botao Concluir Pagamento
+    Clicar Icone Fechar
+    [Teardown]  Close Browser
 
-
-
-
-
-
+   
+    
